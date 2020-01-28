@@ -87,6 +87,29 @@ public class Main {
 
         System.out.println("------------------------------");
 
+        /**
+         *      Task 4. (5 points) Custom Functional Interface
+         * */
+        System.out.println("Task 4: ");
+
+        ThreeFunction<Integer> max = (x, y, z) -> {
+
+            Integer m = x;
+            if(y > m){
+                m = y;
+            }
+            if(z > m){
+                m = z;
+            }
+
+            return m;
+
+        };
+
+        System.out.println(max.compare(5, 7, 9));
+
+        System.out.println("------------------------------");
+
     }
 
 }
