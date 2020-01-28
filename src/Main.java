@@ -1,8 +1,5 @@
 import java.util.*;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
 
 public class Main {
 
@@ -39,8 +36,6 @@ public class Main {
         User user2 = new User("sdf", "sdf");
         user2.setActive(true);
 
-
-
         Predicate<User> isActive = x -> x.getActive();
         System.out.println(isActive.test(user1));
 
@@ -59,10 +54,39 @@ public class Main {
         address.put(user1, new Address("Belinskogo"));
         address.put(user2, new Address("Ermekova"));
         Function<User, Address> findAddress = address::get;
-
         System.out.println(findAddress.apply(user2).getName());
 
+        Consumer<User> print = user -> System.out.println("Consumer " + user);
+        print.accept(user1);
+
+        Supplier<User> userFactory = () ->{
+
+            User user = new User();
+            Scanner in = new Scanner(System.in);
+            System.out.println("First name: ");
+            user.setFirstName(in.nextLine());
+            System.out.println("Last name: ");
+            user.setLastName(in.nextLine());
+            user.setActive(true);
+            user.setId(3L);
+
+            return user;
+
+        };
+        User user3 = userFactory.get();
+        System.out.println("Supplier: " + user3);
+
+        List<User> checkList = new ArrayList<>();
+        checkList.add(user1);
+        checkList.add(user2);
+        Writer<User> writer = checkList::add;
+        writer.doIt(user3);
+        System.out.println(checkList);
+
+        Writer.printW();
+
         System.out.println("------------------------------");
+
     }
 
 }
