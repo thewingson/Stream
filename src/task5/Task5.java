@@ -2,6 +2,7 @@ package task5;
 
 import org.w3c.dom.ls.LSOutput;
 
+import javax.crypto.spec.PSource;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -29,6 +30,11 @@ public class Task5 {
         bookList.add(book2);
         bookList.add(book3);
 
+        List<Author> authorList = new ArrayList<>();
+        authorList.add(author1);
+        authorList.add(author2);
+        authorList.add(author3);
+
         System.out.println("#3.1 - check if some/all book(s) have more than 200 pages");
         bookList.stream().filter(book -> book.getNumberOfPages() > 200).forEach(book -> System.out.println(book.getTitle()));
 
@@ -50,6 +56,17 @@ public class Task5 {
         System.out.println("#3.7 - get distinct list of all authors");
         List<Book> collect1 = bookList.stream().distinct().collect(Collectors.toList());
         System.out.println(collect1);
+
+        System.out.println("#4 - Use peek method for debugging intermediate streams during execution the previous task");
+//        bookList.stream().distinct().peek(book -> book.setNumberOfPages(100)).collect(Collectors.toList()).forEach(book -> System.out.println(book.getNumberOfPages()));
+
+        System.out.println("#5 - Use parallel stream with subtask #3");
+        bookList.stream().parallel().filter(book -> book.getNumberOfPages() < 200).forEach(book -> System.out.println(book.getTitle()));
+
+        System.out.println("#7 - Use the Optional type for determining the title of the biggest book of some author");
+        Optional<Book> first = bookList.stream().filter(book -> book.getAuthors().contains(author3)).max(Comparator.comparing(Book::getNumberOfPages));
+        first.ifPresent(book -> System.out.println(book.getTitle()));
+
 
         System.out.println("------------------------------");
     }
