@@ -4,15 +4,13 @@ public class Team {
 
     private Long id;
     private String name;
-    private Integer money;
 
     public Team() {
     }
 
-    public Team(Long id, String name, Integer money) {
+    public Team(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.money = money;
     }
 
     public Long getId() {
@@ -29,13 +27,5 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getMoney() {
-        return money;
-    }
-
-    public void setMoney(Integer money) {
-        this.money = money;
     }
 }

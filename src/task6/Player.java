@@ -6,6 +6,7 @@ public class Player {
     private String firstName;
     private String lastName;
     private Short age;
+    private Position position;
     private Team team;
     private Short condition;
     private Mood mood;
@@ -14,11 +15,12 @@ public class Player {
     public Player() {
     }
 
-    public Player(Long id, String firstName, String lastName, Short age, Team team, Short condition, Mood mood, Boolean availability) {
+    public Player(Long id, String firstName, String lastName, Short age, Position position, Team team, Short condition, Mood mood, Boolean availability) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.position = position;
         this.team = team;
         this.condition = condition;
         this.mood = mood;
@@ -87,5 +89,13 @@ public class Player {
 
     public void setAvailability(Boolean availability) {
         this.availability = availability;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }
