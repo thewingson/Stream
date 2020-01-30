@@ -22,7 +22,6 @@ public class GameCollector implements Collector<Player, List<Player>, List<Playe
 
     @Override
     public BiConsumer<List<Player>, Player> accumulator() {
-//        return null;
         return (list, val) -> {
             if(val.getAvailability() && (val.getMood().equals(Mood.CHARGED) || val.getMood().equals(Mood.HIGH)) && val.getCondition() > 50){
                 list.add(val);

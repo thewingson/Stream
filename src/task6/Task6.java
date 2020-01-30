@@ -51,8 +51,15 @@ public class Task6 {
         players2.add(new Player(6L, "Asd", "Asd", Short.valueOf("32"), Position.GOALKEEPER, team2, Short.valueOf("70"), Mood.MIDDLE, Boolean.TRUE));
 
         List<Player> result1 = players1.stream().collect(GameCollector.buildUp(5));
+        List<Player> result2 = players2.stream().collect(GameCollector.buildUp(5));
 
         for (Player p : result1) {
+            System.out.println(p.getFirstName() + " " + p.getLastName());
+        }
+
+        System.out.println();
+
+        for (Player p : result2) {
             System.out.println(p.getFirstName() + " " + p.getLastName());
         }
 
