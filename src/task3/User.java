@@ -1,3 +1,5 @@
+package task3;
+
 public class User {
 
     private Long id;
@@ -47,7 +49,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "task3.User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", isActive=" + isActive +

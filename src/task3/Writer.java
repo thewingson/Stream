@@ -1,3 +1,4 @@
+package task3;
 
 @FunctionalInterface
 public interface Writer<T> {

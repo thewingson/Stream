@@ -1,3 +1,5 @@
+package task4;
+
 @FunctionalInterface
 public interface ThreeFunction<T> {
 
