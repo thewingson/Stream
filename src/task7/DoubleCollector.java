@@ -18,7 +18,7 @@ public class DoubleCollector implements Collector<Double, Double[], Double> {
     public DoubleCollector(Method method, Integer size) {
         this.method = method;
         this.size = size;
-        this.checkStarted = false;
+        checkStarted = false;
     }
 
     @Override
@@ -70,8 +70,6 @@ public class DoubleCollector implements Collector<Double, Double[], Double> {
                     result1[0] += result2[0];
                     return result1;
             }
-//            result1[0] += result2[0];
-//            return result1;
         };
     }
 

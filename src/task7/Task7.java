@@ -9,7 +9,7 @@ public class Task7 {
         //Task 7
         System.out.println("Task 7: ");
 
-        List<Double> doubles = Arrays.asList(2.7, 12.6, 11.1, 41.2);
+        List<Double> doubles = Arrays.asList(12.6, 2.7, 41.2, 11.1);
         System.out.println(doubles);
 
         Double res = doubles
