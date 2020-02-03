@@ -2,26 +2,12 @@ package task6;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Task6 {
 
     public static void main(String[] args) {
-
-//        List<Double> numbers = Arrays.asList(1.0, 1.1, 1.4, 1.7, 1.4, 5.4, 9.9);
-//
-//        Map<Integer, Integer> histogram = numbers.stream().collect(toHistogram(1));
-//
-//        for (Map.Entry<Integer, Integer> h : histogram.entrySet()) {
-//            System.out.println("(" + h.getKey() + ") " +": " + "(" + h.getValue() + ")");
-//        }
-
-//        final List<Integer> result = IntStream.of(1, 2, 3, 4, 3, 4, 5)
-//                .boxed()
-//                .collect(CustomCollector.unique());
-//
-//        System.out.println(result);
+        //Task 6
+        System.out.println("Task 6: ");
 
         List<Team> teams = new ArrayList<>();
         Team team1 = new Team(1L, "Manchester United");
@@ -62,6 +48,8 @@ public class Task6 {
         for (Player p : result2) {
             System.out.println(p.getFirstName() + " " + p.getLastName());
         }
+
+        System.out.println("------------------------------");
 
     }
 
