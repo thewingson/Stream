@@ -52,8 +52,26 @@ public class DoubleCollector implements Collector<Double, Double[], Double> {
     @Override
     public BinaryOperator<Double[]> combiner() {
         return (result1, result2) -> {
-            result1[0] += result2[0];
-            return result1;
+            switch (this.method){
+                case MIN:
+                    if(result1[0] < result2[0]){
+                        return result1;
+                    } else{
+                        return result2;
+                    }
+
+                case MAX:
+                    if(result1[0] > result2[0]){
+                        return result1;
+                    } else{
+                        return result2;
+                    }
+                default:
+                    result1[0] += result2[0];
+                    return result1;
+            }
+//            result1[0] += result2[0];
+//            return result1;
         };
     }
 
