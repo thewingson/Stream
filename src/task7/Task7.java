@@ -9,12 +9,12 @@ public class Task7 {
         //Task 7
         System.out.println("Task 7: ");
 
-        List<Integer> integers = Arrays.asList(88, 2, 3, 14);
-        System.out.println(integers);
+        List<Double> doubles = Arrays.asList(2.7, 12.6, 11.1, 41.2);
+        System.out.println(doubles);
 
-        System.out.println(integers
+        Double res = doubles
                 .stream()
-                .collect(new IntCollector()).getClass());
+                .collect(new DoubleCollector(Method.AVG, doubles.size()));
 
         //        Integer res = integers
 //                .stream()
@@ -30,7 +30,7 @@ public class Task7 {
 //                        Collector.Characteristics.IDENTITY_FINISH
 //                ));
 
-//        System.out.println("Result: " + res);
+        System.out.println("Result: " + res);
 
         System.out.println("------------------------------");
 
