@@ -7,8 +7,6 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
-import static java.lang.StrictMath.round;
-
 public class Task7Test {
 
 
