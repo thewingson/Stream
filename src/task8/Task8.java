@@ -8,11 +8,11 @@ public class Task8 {
 
     public static void main(String[] args) {
 
-        MagicTree magicTree22 = new MagicTree(22, (MagicTree) null);
-        MagicTree magicTree21 = new MagicTree(21, (MagicTree) null);
-        MagicTree magicTree13 = new MagicTree(13, (MagicTree) null);
-        MagicTree magicTree12 = new MagicTree(12, (MagicTree) null);
-        MagicTree magicTree11 = new MagicTree(11, (MagicTree) null);
+        MagicTree magicTree22 = new MagicTree(22, new LinkedList<>());
+        MagicTree magicTree21 = new MagicTree(21, new LinkedList<>());
+        MagicTree magicTree13 = new MagicTree(13, new LinkedList<>());
+        MagicTree magicTree12 = new MagicTree(12, new LinkedList<>());
+        MagicTree magicTree11 = new MagicTree(11, new LinkedList<>());
 
         MagicTree magicTree1 = new MagicTree(1, new LinkedList<MagicTree>() {{
             add(magicTree11);
@@ -30,12 +30,14 @@ public class Task8 {
         }});
 
 
-//        List<Integer> flattened = magicTree0.flattenedListValues();
-//        System.out.println(flattened);
+//        List<Integer> flattenedListValues = magicTree0.flattenedListValues();
+//        System.out.println(flattenedListValues);
 
-//        magicTree0.flattened().forEach(System.out::println);
+//        List<MagicTree> flattenedMagicTree = magicTree0.flattenedMagicTree();
+//        System.out.println(flattenedMagicTree);
 
-        System.out.println(magicTree0.flattened());
+        magicTree0.flattenedStream().forEach(System.out::println);
+
 
 
     }

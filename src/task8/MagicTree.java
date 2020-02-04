@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toCollection;
 
 public class MagicTree {
 
@@ -33,46 +34,28 @@ public class MagicTree {
         return Collections.unmodifiableList(children);
     }
 
-    public LinkedList<MagicTree> flattened(){
-
-        LinkedList<MagicTree> temp = children.stream().map(magicTree -> {
-            if(magicTree.getChildren().get(0) == null){
-                return magicTree;
-            }else {
-                magicTree.flattened();
-                return magicTree;
-            }
-        }).collect(Collectors.toCollection(LinkedList::new));
-        temp.addFirst(this);
-
-        return temp;
-
-    }
-
-    public void flattenedVoid(){
-
-        children.stream().filter(magicTree -> {
-            if(magicTree.getChildren().get(0) == null){
-                return true;
-            }else {
-                magicTree.flattenedVoid();
-                return true;
-            }
-        }).forEach(System.out::println);
-
-    }
-
     public List<Integer> flattenedListValues(){
-        if(children.get(0) != null){
-            List<Integer> list = new ArrayList<>();
-            list.add(value);
-            for (MagicTree m: children) {
-                list.addAll(m.flattenedListValues());
-            }
-            return list;
-        } else {
-            return new ArrayList<Integer>(){{add(value);}};
+        List<Integer> list = new LinkedList<>();
+        list.add(this.value);
+        for (MagicTree m: children) {
+            list.addAll(m.flattenedListValues());
         }
+        return list;
+    }
+
+    public List<MagicTree> flattenedMagicTree(){
+        List<MagicTree> list = new LinkedList<>();
+        list.add(this);
+        for (MagicTree m: children) {
+            list.addAll(m.flattenedMagicTree());
+        }
+        return list;
+    }
+
+    public Stream<MagicTree> flattenedStream() {
+        return Stream.concat(
+                Stream.of(this),
+                children.stream().flatMap(MagicTree::flattenedStream));
     }
 
     @Override
