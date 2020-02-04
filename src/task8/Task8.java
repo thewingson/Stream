@@ -1,6 +1,8 @@
 package task8;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class Task8 {
 
@@ -8,12 +10,14 @@ public class Task8 {
 
         MagicTree magicTree22 = new MagicTree(22, (MagicTree) null);
         MagicTree magicTree21 = new MagicTree(21, (MagicTree) null);
+        MagicTree magicTree13 = new MagicTree(13, (MagicTree) null);
         MagicTree magicTree12 = new MagicTree(12, (MagicTree) null);
         MagicTree magicTree11 = new MagicTree(11, (MagicTree) null);
 
         MagicTree magicTree1 = new MagicTree(1, new LinkedList<MagicTree>() {{
             add(magicTree11);
             add(magicTree12);
+            add(magicTree13);
         }});
         MagicTree magicTree2 = new MagicTree(2, new LinkedList<MagicTree>() {{
             add(magicTree21);
@@ -26,8 +30,12 @@ public class Task8 {
         }});
 
 
-        List<Integer> flattened = magicTree2.flattened();
-        System.out.println(flattened);
+//        List<Integer> flattened = magicTree0.flattenedListValues();
+//        System.out.println(flattened);
+
+//        magicTree0.flattened().forEach(System.out::println);
+
+        magicTree1.flattenedVoid();
 
 
     }

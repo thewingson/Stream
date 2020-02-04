@@ -1,7 +1,10 @@
 package task8;
 
+import javax.crypto.spec.PSource;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
 
@@ -31,20 +34,36 @@ public class MagicTree {
 
 //    public Stream<MagicTree> flattened(){
 //
-//        return children.stream().filter(magicTree -> {
-//            if(magicTree.getChildren() != null) {
-//                magicTree.getChildren().stream().
+//        children.stream().filter(magicTree -> {
+//            if(magicTree.getChildren().get(0) == null){
+//                return true;
+//            }else {
+//                magicTree.flattened();
+//                return true;
 //            }
-//        });
+//        }).forEach(System.out::println);
 //
 //    }
 
-    public List<Integer> flattened(){
+    public void flattenedVoid(){
+
+        children.stream().filter(magicTree -> {
+            if(magicTree.getChildren().get(0) == null){
+                return true;
+            }else {
+                magicTree.flattenedVoid();
+                return true;
+            }
+        }).forEach(System.out::println);
+
+    }
+
+    public List<Integer> flattenedListValues(){
         if(children.get(0) != null){
             List<Integer> list = new ArrayList<>();
             list.add(value);
             for (MagicTree m: children) {
-                list.addAll(m.flattened());
+                list.addAll(m.flattenedListValues());
             }
             return list;
         } else {
