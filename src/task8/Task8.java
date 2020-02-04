@@ -35,7 +35,7 @@ public class Task8 {
 
 //        magicTree0.flattened().forEach(System.out::println);
 
-        magicTree1.flattenedVoid();
+        System.out.println(magicTree0.flattened());
 
 
     }

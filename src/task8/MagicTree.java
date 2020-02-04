@@ -1,8 +1,9 @@
 package task8;
 
-import javax.crypto.spec.PSource;
-import java.awt.image.AreaAveragingScaleFilter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -32,18 +33,21 @@ public class MagicTree {
         return Collections.unmodifiableList(children);
     }
 
-//    public Stream<MagicTree> flattened(){
-//
-//        children.stream().filter(magicTree -> {
-//            if(magicTree.getChildren().get(0) == null){
-//                return true;
-//            }else {
-//                magicTree.flattened();
-//                return true;
-//            }
-//        }).forEach(System.out::println);
-//
-//    }
+    public LinkedList<MagicTree> flattened(){
+
+        LinkedList<MagicTree> temp = children.stream().map(magicTree -> {
+            if(magicTree.getChildren().get(0) == null){
+                return magicTree;
+            }else {
+                magicTree.flattened();
+                return magicTree;
+            }
+        }).collect(Collectors.toCollection(LinkedList::new));
+        temp.addFirst(this);
+
+        return temp;
+
+    }
 
     public void flattenedVoid(){
 
