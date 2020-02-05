@@ -37,9 +37,10 @@ public class Task8 {
 
 //        magicTree0.flattenedStream().forEach(System.out::println);
 
-        Optional<Integer> integer = magicTree0.sumOfEvenValues();
-        integer.ifPresent(System.out::println);
+//        Optional<Integer> integer = magicTree0.sumOfEvenValues();
+//        integer.ifPresent(System.out::println);
 
+        System.out.println(magicTree0.isContainsStream(0));
     }
 
 }

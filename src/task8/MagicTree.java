@@ -78,6 +78,27 @@ public class MagicTree {
         return sum;
     }
 
+    public Boolean isContains(Integer value) {
+        if(this.value == value){
+            return true;
+        }
+        for (MagicTree m : children) {
+            if(m.isContains(value)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean isContainsStream(Integer val) {
+        return children.stream().anyMatch(magicTree -> {
+            if(magicTree.value == val){
+                return true;
+            }
+            return magicTree.isContainsStream(val);
+        });
+    }
+
     @Override
     public String toString() {
         return "{" + value + '}';
