@@ -2,7 +2,7 @@ package task8;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.Optional;
 
 public class Task8 {
 
@@ -29,16 +29,16 @@ public class Task8 {
             add(magicTree2);
         }});
 
-
-//        List<Integer> flattenedListValues = magicTree0.flattenedListValues();
+//        List<Integer> flattenedListValues = magicTree0.getAllEvenValues();
 //        System.out.println(flattenedListValues);
 
 //        List<MagicTree> flattenedMagicTree = magicTree0.flattenedMagicTree();
 //        System.out.println(flattenedMagicTree);
 
-        magicTree0.flattenedStream().forEach(System.out::println);
+//        magicTree0.flattenedStream().forEach(System.out::println);
 
-
+        Optional<Integer> integer = magicTree0.sumOfEvenValues();
+        integer.ifPresent(System.out::println);
 
     }
 
